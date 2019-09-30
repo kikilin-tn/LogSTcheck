@@ -1,7 +1,8 @@
 import re
 log_lines=[]
 
-with open('STinput.txt', 'r') as f:
+file_name = 'PU1205_C.TXT'
+with open(file_name, 'r',encoding = 'Big5') as f:
     for line in f:
         event=re.split('\t|,',line)
 
@@ -15,4 +16,30 @@ with open('STinput.txt', 'r') as f:
             log_lines.append(event[0:6])
     print(log_lines)
 
-#print ("'ST1'" in log_lines)
+new_log_list = log_lines[::-1]
+value = None
+cnt = 0
+new = []
+
+for line in new_log_list:
+    print(line)
+
+for line in new_log_list:
+    log_time = line[0]
+    log_event = line[1]
+    log_ID = line[3]
+    st_amt = line[5]
+
+    if log_event =='PRO':
+        cnt = 0
+        if cnt == 0:
+            print('磨耗量為: '+ str(value))
+            print('時間= '+ log_time + ' PRO= '+log_ID)
+    else:
+        cnt += 1
+        if cnt ==1 and log_event =='ST1':
+            first_line = st_amt
+        else:
+            new.append(st_amt)
+            last_line = new[-1]
+            value = int(first_line)-int(last_line)
