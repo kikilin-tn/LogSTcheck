@@ -2,9 +2,11 @@ import re
 log_lines = []
 output = []
 
-file_name = 'PU1203_C.TXT'
+file_name = input('please input the file name: ')
+#file_name = 'PU1203_C.TXT'
 #with open(file_name, 'r') as f: #encoding = 'Big5'
 with open(file_name,'r', encoding = 'Big5') as f:
+#with open(file_name,'r', encoding = 'utf-8') as f:
     for line in f:
         event=re.split('\t|,',line)
 
