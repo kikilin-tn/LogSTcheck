@@ -29,8 +29,8 @@ new2 = []
 output = []
 
 #時間倒序確認
-for line in new_log_list:
-    print(line)
+#for line in new_log_list:
+    #print(line)
 
 for line in new_log_list:
     log_time = line[0]
@@ -44,9 +44,9 @@ for line in new_log_list:
         cnt2 = 0
 
         #結果印出
-        print('ST1磨耗='+str(value1))
-        print('ST2磨耗='+str(value2))
-        print('時間= '+ log_time + ' PRO= '+log_ID)
+        #print('ST1磨耗='+str(value1))
+        #print('ST2磨耗='+str(value2))
+        #print('時間= '+ log_time + ' PRO= '+log_ID)
 
         new_line1 = 'ST1磨耗='+str(value1)
         output.append(new_line1)
@@ -72,6 +72,7 @@ for line in new_log_list:
             new2.append(st_amt)
             last_line2 = new2[-1]
             value2 = int(first_line2)-int(last_line2)
+print('結果已輸出至"output.txt"檔案')
 
 with open('output.txt','w') as fout:
     for line in output:
