@@ -2,7 +2,7 @@ import re
 import time
 log_lines = []
 
-file_name = input('please input the file name: ')
+file_name = input('請將LOG檔案放入同一資料夾後，輸入檔名(如:PU1203_C.TXT)')
 #file_name = 'PU1203_C.TXT'
 #with open(file_name, 'r') as f: #encoding = 'Big5'
 with open(file_name,'r', encoding = 'Big5') as f:
@@ -74,8 +74,8 @@ for line in new_log_list:
             last_line2 = new2[-1]
             value2 = int(first_line2)-int(last_line2)
 print('結果已輸出至"output.txt"檔案')
-time.sleep(20)
+time.sleep(3)
 
-with open('output.txt','w') as fout:
+with open('output.txt','w',encoding = 'utf-8') as fout:
     for line in output:
         fout.write(line + '\n')
